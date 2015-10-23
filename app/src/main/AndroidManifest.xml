@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.o0none0o.reminder" >
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
 
     <application
         android:allowBackup="true"
@@ -18,7 +19,7 @@
         </activity>
 
         <activity android:name=".CreateEvent"/>
-
+    <uses-permision android:name="android.permission.WRITE_INTERNAL_STORAGE"></uses-permision>
     <activity android:name=".PersonalizeActivity"/>
     <activity android:name=".MainActivity"/>
     </application>

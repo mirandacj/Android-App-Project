@@ -30,12 +30,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/eventName"
+        android:focusable="true"
         android:hint="Reminder Name"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/eventDesc"
+        android:focusable="true"
         android:layout_gravity="center_horizontal"
         android:hint="Description"/>
 
@@ -66,13 +68,6 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TimePicker
-        android:id="@+id/timePicker1"
-        android:layout_width="match_parent"
-        android:layout_height="137dp"
-        android:visibility="invisible"
-        android:layout_weight="0.82" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,6 +81,15 @@
         android:text="Finish"
         android:id="@+id/btnDone"
         android:layout_gravity="right"
-        android:onClick="done" />
+        android:onClick="done"
+        android:allowUndo="true"
+        android:focusable="false" />
+
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="match_parent"
+        android:layout_height="137dp"
+        android:visibility="invisible"
+        android:layout_weight="0.82" />
 
 </LinearLayout>
