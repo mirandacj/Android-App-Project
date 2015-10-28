@@ -9,14 +9,14 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:id="@+id/tvName"
-        android:paddingRight="100dp" />
+        android:layout_marginRight="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description"
         android:id="@+id/tvDesc"
-        android:paddingRight="100dp" />
+        android:layout_marginRight="50dp" />
 
     <TextView
         android:layout_width="wrap_content"

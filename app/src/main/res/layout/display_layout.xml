@@ -9,6 +9,46 @@
         android:layout_width="match_parent"
 
         android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/disp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:id="@+id/name_header"
+                android:layout_marginRight="100dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="80dp"
+                android:text="Description"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                />
+
+        </LinearLayout>
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView3"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
 
     </FrameLayout>
 
@@ -20,6 +60,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:choiceMode="singleChoice"
+    android:background="#dedede"
 
     android:entries="@array/menus"
     ></ListView>

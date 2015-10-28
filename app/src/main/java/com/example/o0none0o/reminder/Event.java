@@ -1,14 +1,14 @@
 package com.example.o0none0o.reminder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Created by mitchem on 9/30/2015.
  */
 public class Event implements Comparable {
     private String name;
-    private Date end;
+    private Calendar end;
     private String description;
 
     public Event(){
@@ -33,16 +33,16 @@ public class Event implements Comparable {
         else { this.name = "Event Name"; }
     }
 
-    public Date getEnd() {
+    public Calendar getEnd() {
         return end;
     }
 
 
     public void setEnd(String end) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = null;
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+        Calendar date = Calendar.getInstance();
         try{
-            date = format.parse(end);
+            date.setTime(format.parse(end));
         } catch (ParseException e){
             e.printStackTrace();
         }

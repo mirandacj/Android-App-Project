@@ -16,7 +16,7 @@
         android:id="@+id/lblDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="End Date (M-D-YYYY): "
+        android:text="End Date (MM-DD-YYYY): "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -30,14 +30,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/eventName"
-        android:focusable="true"
         android:hint="Reminder Name"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/eventDesc"
-        android:focusable="true"
         android:layout_gravity="center_horizontal"
         android:hint="Description"/>
 
@@ -58,7 +56,7 @@
         android:id="@+id/lblTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current Time (H:M): "
+        android:text="End Time: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

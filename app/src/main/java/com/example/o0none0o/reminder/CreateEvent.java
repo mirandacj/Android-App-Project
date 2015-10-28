@@ -1,12 +1,15 @@
 package com.example.o0none0o.reminder;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,21 +26,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CreateEvent extends Activity {
-    private ArrayList<Event> data;
     private TextView tvDisplayDate;
     private DatePicker dpResult;
     private Button btnChangeDate;
-    private Button btnCreate;
     EditText text;
     String name, desc;
-    String line;
-    static String filename = "MyShared String";
-    SharedPreferences share;
-
+    StringBuilder sb = new StringBuilder();
     FileOutputStream out = null;
     private int year;
     private int month;
     private int day;
+    final static int RQS_1 = 1;
 
     private TextView tvDisplayTime;
     private TimePicker timePicker1;
@@ -53,11 +52,9 @@ public class CreateEvent extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_event_layout);
-        data = new ArrayList<Event>();
         setCurrentDateOnView();
         setCurrentTimeOnView();
         addListenerOnButton();
-        share = getSharedPreferences(filename, 0);
 
     }
 
@@ -205,47 +202,59 @@ public class CreateEvent extends Activity {
         TextView text2 = (TextView) findViewById(R.id.tvTime);
         String time = text2.getText().toString();
         text2 = (TextView) findViewById(R.id.dateResult);
-        time = text2.getText().toString().trim() + " " + time + ":00";
+        time = text2.getText().toString() + " " + time + ":00";
 
         Event temp = new Event(name, time, desc);
-
-        data.add(temp);
+        setAlarm(temp);
         writeOut(name, desc, time);
 
 
     }
 
-    public void writeOut(String name, String text, String time) {
-        StringBuilder sb = new StringBuilder();
 
+    public void writeOut(String name, String text, String time) {
         try {
-            out = openFileOutput("Reminders.txt", Context.MODE_APPEND);
-        } catch (FileNotFoundException e) {
+            out = openFileOutput("Reminders.txt", 0);
+        }
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        try
-        {
+        try {
             sb.append(name);
-            sb.append("\t ");
+            sb.append("~ ");
             sb.append(text);
-            sb.append("\t ");
+            sb.append("~ ");
             sb.append(time);
             sb.append(System.getProperty("line.separator"));
             out.write(sb.toString().getBytes());
             out.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void done(View view) throws Exception{
-
-       Intent intent = new Intent(this, MainActivity.class);
-     //  Intent intent = new Intent(this, ListTest.class);
-        ActivityBridge.setObject(data);
-        startActivity(intent);
+    public void done(View view) {
+            Intent intent = new Intent(this, DisplayActivity.class);
+            startActivity(intent);
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+        private void setAlarm(Event events){
+        final int _id = (int) System.currentTimeMillis();
+
+//call push noti
+        Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), _id, intent, 0);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, events.getEnd().getTimeInMillis(), pendingIntent);
+
+//call pop up dialog
+        Intent intent2 = new Intent(getBaseContext(), AlertAlarm.class);
+        PendingIntent pendingIntent2 = PendingIntent.getActivity(getBaseContext(), _id, intent2, 0);
+        AlarmManager alarmManager2 = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager2.setExact(AlarmManager.RTC_WAKEUP, events.getEnd().getTimeInMillis(), pendingIntent2);
+    }
 
 }
 
