@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Description:  "
+        android:text="Description:    "
         android:id="@+id/text2"
         android:layout_below="@+id/text1"
         android:layout_alignParentStart="true" />
@@ -61,19 +61,11 @@
         android:layout_toEndOf="@+id/text3" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        android:id="@+id/btnEdit"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/eventDesc" />
-
-    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Delete"
         android:id="@+id/btnDel"
-        android:layout_alignTop="@+id/btnEdit"
-        android:layout_toStartOf="@+id/eventDesc"
-        android:onClick="deleteEvent" />
+        android:onClick="deleteEvent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
