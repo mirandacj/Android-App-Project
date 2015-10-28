@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="172dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doridrobot"
+            android:id="@+id/radioButton"
+            android:checked="false"
+            android:onClick="selectFont"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insomnia"
+            android:id="@+id/radioButton2"
+            android:checked="false"
+            android:onClick="selectFont"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Space Gothic"
+            android:id="@+id/radioButton3"
+            android:checked="false"
+            android:onClick="selectFont"/>
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Personalize"
-        android:id="@+id/tvPersonalize" />
-</LinearLayout>
+        android:id="@+id/tvPersonalize"
+        android:textSize="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

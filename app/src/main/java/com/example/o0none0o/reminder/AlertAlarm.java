@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
@@ -29,7 +30,7 @@ public class AlertAlarm extends Activity {
         setContentView(R.layout.custom_noti);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("NOTIFICATION");
-        alertDialogBuilder.setMessage("Dismiss");
+        alertDialogBuilder.setMessage("This is an alarm");
         alertDialogBuilder.setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -41,11 +42,30 @@ public class AlertAlarm extends Activity {
         alertDialogBuilder.setNegativeButton("Snooze", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                setSnooze(30000);
                 dialog.cancel();
             }
         });
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+    public void setSnooze(int duration){
+        final Intent  intent = new Intent(context, AlertAlarm.class);
+
+        int currentTimeMillis = (int) System.currentTimeMillis();
+
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run()
+
+            {
+                startActivity(intent);
+            }
+        }, currentTimeMillis + duration);
+
     }
 
     public void cleanList(){
