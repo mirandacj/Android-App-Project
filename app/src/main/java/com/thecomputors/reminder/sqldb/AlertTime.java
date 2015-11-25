@@ -59,6 +59,7 @@ public class AlertTime extends AbstractModel {
 	/*
 		params: database, alertId, orderBy
 	 */
+
 	public static Cursor list(SQLiteDatabase db, String... args) {
 		String[] columns = {COL_ID, COL_AT};
 		String selection = "1 = 1";

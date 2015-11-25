@@ -102,5 +102,12 @@
         <item>Doridrobot</item>
         <item>Insomnia</item>
     </string-array>
+
+    <string-array name="themes_arr">
+        <item>Cheerful</item>
+        <item>What</item>
+        <item>Happy</item>
+        <item>Excited</item>
+    </string-array>
         
 </resources>

@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="cheerfulPrimary">#6D4C41</color>
+    <color name="whatPrimary">#FFFF00</color>
+    <color name="excitedPrimary">#26C6DA</color>
+    <color name="happyPrimary">#039BE5</color>
+
 </resources>

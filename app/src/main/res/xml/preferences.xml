@@ -58,6 +58,15 @@
 
         </ListPreference>
 
+        <ListPreference android:key="theme_pref"
+            android:title="Set Theme"
+            android:summary="Default"
+            android:defaultValue="cheerful"
+            android:entries="@array/themes_arr"
+            android:entryValues="@array/themes_arr">
+
+        </ListPreference>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -23,6 +23,7 @@ public class Reminder extends Application {
     public static final String VIBRATE_PREF = "vibrate_pref";
     public static final String RINGTONE_PREF = "ringtone_pref";
     public static final String FONT_PREF = "font_pref";
+    public static final String THEME_PREF = "theme_pref";
 
     public static final String DEFAULT_DATE_FORMAT = "yyyy-M-d";
 
@@ -58,6 +59,8 @@ public class Reminder extends Application {
     }
 
     public static String getFontPref() { return sp.getString(FONT_PREF, "Default"); }
+
+    public static String getThemePref() { return sp.getString(THEME_PREF, "cheerful"); }
 
     public static String getRingtone() {
         return sp.getString(RINGTONE_PREF, android.provider.Settings.System.DEFAULT_NOTIFICATION_URI.toString());

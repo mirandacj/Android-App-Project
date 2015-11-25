@@ -17,6 +17,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -38,6 +39,7 @@ public class DisplayActivity extends ListActivity {
     private TextView dateRange;
 
     private Typeface type;
+    private int id;
     private boolean change = false;
 
     private SQLiteDatabase db;
@@ -54,6 +56,11 @@ public class DisplayActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.display_layout);
+
+        id = getResources().getIdentifier(Reminder.getThemePref().toLowerCase(), "drawable", getPackageName());
+        LinearLayout layout = (LinearLayout)findViewById(R.id.layout);
+        layout.setBackgroundResource(id);
+
         findViews();
         db = Reminder.db;
         monthArr = getResources().getStringArray(R.array.spinner3_arr);

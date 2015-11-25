@@ -7,5 +7,29 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="CheerfulTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/cheerfulPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="WhatTheme" parent="android:Theme.Holo.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/whatPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="ExcitedTheme" parent="android:Theme.Holo.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/excitedPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="HappyTheme" parent="android:Theme.Holo.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/happyPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
 </resources>
