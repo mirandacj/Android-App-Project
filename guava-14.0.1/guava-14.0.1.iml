@@ -21,5 +21,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
+=======
+    <orderEntry type="library" exported="" name="guava-14.0.1.guava-14.0.1" level="project" />
+>>>>>>> origin/master
   </component>
 </module>
